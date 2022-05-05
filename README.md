@@ -1,3 +1,5 @@
+##Eslint & Editor Setup
+
 Eslint:
   package.json-> Scripts->
 
