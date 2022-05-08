@@ -4,8 +4,10 @@ Eslint:
   package.json-> Scripts->
 
 ```
-"lint": "npx install-peerdeps --dev eslint-config-airbnb"
+"lint": "npm install --save-dev prettier && npm install @babel/eslint-parser -D && npm install @babel/preset-react -D && npx install-peerdeps --dev eslint-config-airbnb install -D eslint-config-prettier eslint-plugin-prettier",
+"lint:fix": "eslint --fix --ext .js"
 npm run lint
+npm run lint:fix
 ```
 
 .eslintrc->
@@ -19,10 +21,15 @@ npm run lint
     "prettier",
     "plugin:jsx-a11y/recommended"
   ],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 8
+    "ecmaVersion": 8,
+    "requireConfigFile": false,
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    }
   },
+
   "env": {
     "browser": true,
     "node": true,
@@ -58,6 +65,7 @@ npm run lint
   },
   "plugins": ["prettier", "react", "react-hooks"]
 }
+
 ```
 
 - Editor Settings : Create a new file called "settings.json" inside that folder.
@@ -68,7 +76,7 @@ npm run lint
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": false,
-    "editor.defaultFormatter": null
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascriptreact]": {
     "editor.formatOnSave": false,
@@ -81,6 +89,7 @@ npm run lint
     "source.organizeImports": true
   },
   "eslint.alwaysShowStatus": true,
+
   "emmet.triggerExpansionOnTab": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
