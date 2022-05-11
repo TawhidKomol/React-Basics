@@ -4,7 +4,7 @@ Eslint:
   package.json-> Scripts->
 
 ```
-"lint": "npm install --save-dev prettier && npm install @babel/eslint-parser -D && npm install @babel/preset-react -D && npx install-peerdeps --dev eslint-config-airbnb install -D eslint-config-prettier eslint-plugin-prettier",
+"lint": "npm install --save-dev prettier && npm install @babel/eslint-parser -D && npm install @babel/preset-react -D && npx install-peerdeps --dev eslint-config-airbnb && npm install -D eslint-config-prettier eslint-plugin-prettier",
 "lint:fix": "eslint --fix --ext .js"
 npm run lint
 npm run lint:fix
